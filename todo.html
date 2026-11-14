@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  body { font-family: sans-serif; max-width: 480px; margin: 40px auto; background: #fffbe6; }
+  h1 { color: #2563eb; }
+  input { padding: 8px; width: 60%; }
+  button { padding: 8px 12px; cursor: pointer; }
+  ul { list-style: none; padding: 0; }
+  li { background: white; padding: 10px; margin: 8px 0; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+  li.done span { text-decoration: line-through; color: gray; }
+</style>
+</head>
+<body>
+<h1>ToDoリスト</h1>
+<input type="text" id="task" placeholder="やることを入力">
+<button id="add">追加</button>
+<ul id="list"></ul>
+<script>
+const input = document.getElementById("task");
+const addBtn = document.getElementById("add");
+const list = document.getElementById("list");
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+tasks = tasks.map(function (t) {
+  return typeof t === "string" ? { text: t, done: false } : t;
+});
+
+function save() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function render() {
+  list.innerHTML = "";
+  tasks.forEach(function (task, i) {
+    const li = document.createElement("li");
+    if (task.done) li.className = "done";
+    const span = document.createElement("span");
+    span.textContent = task.text;
+    span.style.cursor = "pointer";
+    span.addEventListener("click", function () {
+      task.done = !task.done;
+      save();
+      render();
+    });
+    const del = document.createElement("button");
+    del.textContent = "削除";
+    del.addEventListener("click", function () {
+      tasks.splice(i, 1);
+      save();
+      render();
+    });
+    li.appendChild(span);
+    li.appendChild(del);
+    list.appendChild(li);
+  });
+}
+
+addBtn.addEventListener("click", function () {
+  if (input.value === "") return;
+  tasks.push({ text: input.value, done: false });
+  save();
+  render();
+  input.value = "";
+});
+
+render();
+</script>    
+</body>
+</html>
