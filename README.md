@@ -16,6 +16,13 @@ https://webcreator-fuma.github.io/todo-app/timer.html
 - スタートとリセット
 - 時間になるとお知らせを表示
 
+## 3. 電卓
+https://webcreator-fuma.github.io/todo-app/calc.html
+
+- 四則演算と小数点の計算
+- Cボタンでリセット
+- ボタン配置にCSS Gridを使用
+
 ## 使用技術
 HTML / CSS / JavaScript
 
@@ -23,4 +30,5 @@ HTML / CSS / JavaScript
 - 入力を受け取って画面に反映する仕組み
 - データの保存と復元
 - 時間で動く処理(setInterval)
+- ボタンの押下を式として組み立てて計算する処理
 - GitHub Pagesでの公開
