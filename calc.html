@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電卓</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #fffbe6; margin-top: 40px; }
+    h1 { color: #2563eb; }
+    #calc { width: 260px; margin: 0 auto; }
+    #display { width: 100%; box-sizing: border-box; font-size: 32px; text-align: right; padding: 12px; margin-bottom: 10px; }
+    .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    button { font-size: 20px; padding: 14px 0; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    button.op { background: #f59e0b; }
+    button.clear { background: #ef4444; }
+  </style>
+</head>
+<body>
+  <h1>電卓</h1>
+  <div id="calc">
+    <input id="display" type="text" value="0" readonly>
+    <div class="keys">
+      <button class="clear" data-key="C">C</button>
+      <button class="op" data-key="/">÷</button>
+      <button class="op" data-key="*">×</button>
+      <button class="op" data-key="-">−</button>
+      <button data-key="7">7</button>
+      <button data-key="8">8</button>
+      <button data-key="9">9</button>
+      <button class="op" data-key="+">+</button>
+      <button data-key="4">4</button>
+      <button data-key="5">5</button>
+      <button data-key="6">6</button>
+      <button data-key="=">=</button>
+      <button data-key="1">1</button>
+      <button data-key="2">2</button>
+      <button data-key="3">3</button>
+      <button data-key="0">0</button>
+      <button data-key=".">.</button>
+    </div>
+  </div>
+  <script>
+    const display = document.getElementById("display");
+    let expr = "";
+
+    document.querySelectorAll("button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const key = btn.dataset.key;
+        if (key === "C") {
+          expr = "";
+          display.value = "0";
+        } else if (key === "=") {
+          try {
+            expr = String(Function("return " + expr)());
+            display.value = expr;
+          } catch (e) {
+            display.value = "エラー";
+            expr = "";
+          }
+        } else {
+          expr = expr + key;
+          display.value = expr;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
