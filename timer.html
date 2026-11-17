@@ -34,6 +34,7 @@
 <div id="time">25:00</div>
 <button id="start">スタート</button>
 <button id="reset">リセット</button>
+<button id="rest">休憩5分</button>
   <script>
   const timeEl = document.getElementById("time");
   const startBtn = document.getElementById("start");
@@ -60,7 +61,13 @@
       }
     }, 1000);
   });
-
+const restBtn = document.getElementById("rest");
+restBtn.addEventListener("click", function () {
+  clearInterval(timerId);
+  timerId = null;
+  seconds = 5 * 60;
+  show();
+});
   resetBtn.addEventListener("click", function () {
     clearInterval(timerId);
     timerId = null;
