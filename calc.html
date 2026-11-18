@@ -53,6 +53,9 @@
         } else if (key === "=") {
           try {
             expr = String(Function("return " + expr)());
+            if(expr === "Infinity"|| expr === "NaN"){
+              throw new Error();
+            }
             display.value = expr;
           } catch (e) {
             display.value = "エラー";
