@@ -63,6 +63,7 @@
       if (seconds <= 0) {
         clearInterval(timerId);
         timerId = null;
+        timeEl.style.color = "red";
         alert("おつかれさま!休憩しましょう");
       }
     }, 1000);
@@ -73,16 +74,19 @@ restBtn.addEventListener("click", function () {
   clearInterval(timerId);
   timerId = null;
   seconds = 5 * 60;
+  timeEl.style.color = "";
   show();
 });
 setBtn.addEventListener("click", function () {
    seconds = Number(minutesInput.value) * 60;
+    timeEl.style.color = "";
     show();
 });
   resetBtn.addEventListener("click", function () {
     clearInterval(timerId);
     timerId = null;
     seconds = 25 * 60;
+     timeEl.style.color = "";
     show();
   });
   stopBtn.addEventListener("click", function () {
