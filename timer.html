@@ -86,7 +86,7 @@ setBtn.addEventListener("click", function () {
   resetBtn.addEventListener("click", function () {
     clearInterval(timerId);
     timerId = null;
-    seconds = 25 * 60;
+    seconds = Number(localStorage.getItem("minutes")|| 25 )* 60;
      timeEl.style.color = "";
     show();
   });
