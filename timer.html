@@ -79,6 +79,7 @@ restBtn.addEventListener("click", function () {
 });
 setBtn.addEventListener("click", function () {
    seconds = Number(minutesInput.value) * 60;
+   localStorage.setItem("minutes", minutesInput.value);
     timeEl.style.color = "";
     show();
 });
@@ -93,7 +94,12 @@ setBtn.addEventListener("click", function () {
     clearInterval(timerId);
     timerId = null;
   });
+  const saved = localStorage.getItem("minutes");
+     if (saved) {
+      minutesInput.value = saved;
+       seconds = Number(minutesInput.value) * 60;
+        show();
+    } 
 </script>
-
 </body>
 </html>
