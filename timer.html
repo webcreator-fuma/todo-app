@@ -64,6 +64,7 @@
         clearInterval(timerId);
         timerId = null;
         timeEl.style.color = "red";
+        document.title = "時間です！";
         alert("おつかれさま!休憩しましょう");
       }
     }, 1000);
@@ -75,12 +76,14 @@ restBtn.addEventListener("click", function () {
   timerId = null;
   seconds = 5 * 60;
   timeEl.style.color = "";
+  document.title = "ポモドーロタイマー";
   show();
 });
 setBtn.addEventListener("click", function () {
    seconds = Number(minutesInput.value) * 60;
    localStorage.setItem("minutes", minutesInput.value);
     timeEl.style.color = "";
+      document.title = "ポモドーロタイマー";
     show();
 });
   resetBtn.addEventListener("click", function () {
@@ -88,6 +91,7 @@ setBtn.addEventListener("click", function () {
     timerId = null;
     seconds = Number(localStorage.getItem("minutes")|| 25 )* 60;
      timeEl.style.color = "";
+       document.title = "ポモドーロタイマー";
     show();
   });
   stopBtn.addEventListener("click", function () {
