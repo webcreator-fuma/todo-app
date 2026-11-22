@@ -74,6 +74,23 @@
         }
       });
     });
+    document.addEventListener("keydown", function (e) {
+      const key = e.key;
+      console.log(key);
+      if ("0123456789+-*".includes(key)) {
+        expr = expr + key;
+        display.value = expr;
+      }
+if (key === "Enter") {
+    document.querySelector('[data-key="="]').click(); 
+}
+if (key === "Backspace") {
+    document.querySelector('[data-key="←"]').click(); 
+}
+if (key === "Escape") {
+    document.querySelector('[data-key="C"]').click(); 
+}
+    });
   </script>
 </body>
 </html>
