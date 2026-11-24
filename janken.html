@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけん</title>
+    <style>
+     body {
+    font-family: sans-serif;
+    text-align: center;
+    background: #fffbe6;
+    margin-top: 60px;
+  }
+  h1 { color: #2563eb; }
+  #result {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 30px 0;
+    color:rgb(255, 0, 0);
+  }
+  button {
+    font-size: 18px;
+    padding: 10px 16px;
+    margin: 6px 4px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+  }
+ </style>   
+</head>
+<body>
+    <h1>じゃんけん</h1>
+<button data-hand="グー">グー</button>
+<button data-hand="チョキ">チョキ</button>
+<button data-hand="パー">パー</button>
+<div id="result"></div> 
+<script>
+const hands = ["グー", "チョキ", "パー"];
+ document.querySelectorAll("button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const hand = btn.dataset.hand;
+        const computer = hands[Math.floor(Math.random() * hands.length)];
+        const resultEl = document.getElementById("result");
+        if (hand === computer) {
+            resultEl.textContent = "コンピューターは" + computer + "です。あいこです。";
+        }
+        else if (hand === "グー" && computer === "チョキ" ||
+                 hand === "チョキ" && computer === "パー" ||
+                 hand === "パー" && computer === "グー") {
+            resultEl.textContent = "コンピューターは" + computer + "です。あなたのかちです。";
+        }
+        else {
+            resultEl.textContent = "コンピューターは" + computer + "です。あなたの負けです。";
+        }
+    });
+    });
+</script>    
+</body>
+</html>
