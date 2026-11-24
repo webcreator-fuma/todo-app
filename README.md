@@ -25,6 +25,13 @@ https://webcreator-fuma.github.io/todo-app/calc.html
 - Cボタンでリセット
 - ボタン配置にCSS Gridを使用
 
+## 4. おみくじ
+https://webcreator-fuma.github.io/todo-app/omikuji.html
+
+- ボタンを押すと結果が出る
+- 結果は6種類
+- CSSで装飾
+
 ## 使用技術
 HTML / CSS / JavaScript
 
