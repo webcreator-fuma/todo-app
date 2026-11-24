@@ -32,6 +32,13 @@ https://webcreator-fuma.github.io/todo-app/omikuji.html
 - 結果は6種類
 - CSSで装飾
 
+## 5. じゃんけん
+https://webcreator-fuma.github.io/todo-app/janken.html
+
+- ボタンを押すとコンピューターと勝負ができる
+- コンピューターの手はランダムで決まる
+- 勝ち、負け、あいこが決まる
+
 ## 使用技術
 HTML / CSS / JavaScript
 
