@@ -36,8 +36,13 @@
 <button data-hand="チョキ">チョキ</button>
 <button data-hand="パー">パー</button>
 <div id="result"></div> 
+<div id="score">勝ち: 0, 負け: 0</div>
+
 <script>
 const hands = ["グー", "チョキ", "パー"];
+let wins = Number(localStorage.getItem("wins")) || 0;
+let losses = Number(localStorage.getItem("losses")) || 0;
+document.getElementById("score").textContent = "勝ち: " + wins + ", 負け: " + losses;
  document.querySelectorAll("button").forEach(function (btn) {
       btn.addEventListener("click", function () {
         const hand = btn.dataset.hand;
@@ -50,10 +55,15 @@ const hands = ["グー", "チョキ", "パー"];
                  hand === "チョキ" && computer === "パー" ||
                  hand === "パー" && computer === "グー") {
             resultEl.textContent = "コンピューターは" + computer + "です。あなたのかちです。";
+            wins++;
         }
         else {
             resultEl.textContent = "コンピューターは" + computer + "です。あなたの負けです。";
+            losses++;
         }
+        document.getElementById("score").textContent = "勝ち: " + wins + ", 負け: " + losses;
+        localStorage.setItem("wins", wins);
+        localStorage.setItem("losses", losses);
     });
     });
 </script>    
