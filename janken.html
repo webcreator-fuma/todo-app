@@ -35,6 +35,7 @@
 <button data-hand="グー">グー</button>
 <button data-hand="チョキ">チョキ</button>
 <button data-hand="パー">パー</button>
+<button id="reset">リセット</button>
 <div id="result"></div> 
 <div id="score">勝ち: 0, 負け: 0</div>
 
@@ -42,8 +43,8 @@
 const hands = ["グー", "チョキ", "パー"];
 let wins = Number(localStorage.getItem("wins")) || 0;
 let losses = Number(localStorage.getItem("losses")) || 0;
-document.getElementById("score").textContent = "勝ち: " + wins + ", 負け: " + losses;
- document.querySelectorAll("button").forEach(function (btn) {
+document.querySelector("#score").textContent = "勝ち: " + wins + ", 負け: " + losses;
+ document.querySelectorAll("[data-hand]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         const hand = btn.dataset.hand;
         const computer = hands[Math.floor(Math.random() * hands.length)];
@@ -65,6 +66,15 @@ document.getElementById("score").textContent = "勝ち: " + wins + ", 負け: " 
         localStorage.setItem("wins", wins);
         localStorage.setItem("losses", losses);
     });
+    });
+    const resetButton = document.getElementById("reset");
+    resetButton.addEventListener("click", function () {
+        wins = 0;
+        losses = 0;
+        localStorage.removeItem("wins");
+        localStorage.removeItem("losses");
+        document.getElementById("score").textContent = "勝ち: " + wins + ", 負け: " + losses;
+        document.getElementById("result").textContent = "";
     });
 </script>    
 </body>
