@@ -41,6 +41,14 @@ https://webcreator-fuma.github.io/todo-app/janken.html
 - 自分の勝ち数、負け数を数える
 - 勝ち数、負け数はブラウザーに保存されていてリセットボタンで消せる
 
+## 6. 数当てゲーム
+https://webcreator-fuma.github.io/todo-app/guess.html
+
+- ランダムに隠した数字を当てる
+- 入れた数字より大きいか小さいかヒントが出る
+- 何回で当てたか表示される
+- 何回でも遊びなおせる
+
 ## 使用技術
 HTML / CSS / JavaScript
 
