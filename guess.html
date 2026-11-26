@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数当てゲーム</title>
+    <style>
+  body {
+    font-family: sans-serif;
+    text-align: center;
+    background: #fffbe6;
+    margin-top: 60px;
+  }
+  h1 { color: #eb2525; }
+  #time {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 30px 0;
+  }
+  button {
+    font-size: 18px;
+    padding: 10px 16px;
+    margin: 6px 4px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover { background: #1d4ed8; }
+</style></head>
+<body>
+ <h1>数当てゲーム</h1>
+    <p>1から100までの数字を当ててください。</p>
+    <input type="number" id="guessInput" min="1" max="100">
+    <button id="guessButton">当てる</button>
+    <button id="retry">もう一回</button>
+    <div id="result"></div>
+
+    <script>
+        let answer = Math.floor(Math.random() * 100) + 1;
+        let count = 0; 
+        const resultEl = document.getElementById("result");
+        const guessButton = document.getElementById("guessButton");
+        const guessInput = document.getElementById("guessInput");
+        const retryButton = document.getElementById("retry");
+        guessButton.addEventListener("click", function () {
+       const guess = Number(guessInput.value);
+        count++;
+       if (guess === answer) {
+           resultEl.textContent = "正解です！ " + count + " 回で当てました。";
+       } else if (guess < answer) {
+           resultEl.textContent = "もっと大きい数字です。";
+       } else {
+           resultEl.textContent = "もっと小さい数字です。";
+       }
+    });
+    retryButton.addEventListener("click", function () {
+        answer = Math.floor(Math.random() * 100) + 1;
+        count = 0;
+        resultEl.textContent = "";
+        guessInput.value = "";
+    });
+    </script>
+</body>
+</html>
