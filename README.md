@@ -38,6 +38,8 @@ https://webcreator-fuma.github.io/todo-app/janken.html
 - ボタンを押すとコンピューターと勝負ができる
 - コンピューターの手はランダムで決まる
 - 勝ち、負け、あいこが決まる
+- 自分の勝ち数、負け数を数える
+- 勝ち数、負け数はブラウザーに保存されていてリセットボタンで消せる
 
 ## 使用技術
 HTML / CSS / JavaScript
