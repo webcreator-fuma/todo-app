@@ -49,6 +49,13 @@ https://webcreator-fuma.github.io/todo-app/guess.html
 - 何回で当てたか表示される
 - 何回でも遊びなおせる
 
+## 7. 文字数カウンター
+https://webcreator-fuma.github.io/todo-app/counter.html
+
+- 入力した文字数をリアルタイムで出す
+- 日本語、漢字も一文字で数える
+- すべて消すと０に戻る
+
 ## 使用技術
 HTML / CSS / JavaScript
 
